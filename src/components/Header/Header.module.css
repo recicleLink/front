@@ -1,0 +1,22 @@
+/* Header.module.css */
+.header {
+  width: 100%;
+  height: 10%;
+
+  background-color: #9E5AFF;
+  color: #D6E0ED;
+}
+
+.logo {
+  margin-left: 12px;
+  padding: 24px;
+  font-family: 'Roboto', sans-serif;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+@media (max-width: 768px) {
+  .header {
+    background-color: #9E5AFF;
+  }
+}

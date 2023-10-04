@@ -1,0 +1,74 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+  background-color: #9E5AFF;
+  height: 100v;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  flex-grow: 1;
+
+}
+
+.leftSide,
+.rightSide {
+  flex: 1;
+}
+
+.leftSide {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  padding: 32px;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: yellow;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* Sombra do texto */
+  letter-spacing: 2px;
+}
+
+.buttons {
+  margin-top: 12%;
+  display: flex;
+  gap: 20px;
+}
+
+.rightSide {
+  background: url('../../assets/images/RecicleLink.svg') no-repeat center;
+  background-size: contain;
+  flex: 1;
+  margin-bottom: 20vh
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .leftSide,
+  .rightSide {
+    flex: none;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

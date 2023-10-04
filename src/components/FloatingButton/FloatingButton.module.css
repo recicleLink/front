@@ -1,0 +1,31 @@
+.button {
+  padding: 12px 24px;
+  border-radius: 50px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.button::before,
+.button::after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border: 2px dashed white;
+  border-radius: inherit;
+  top: 10%;
+  left: 10%;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.button:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
