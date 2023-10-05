@@ -39,11 +39,24 @@ const CooperativaDashboard = () => {
     fetchSolicitacoes();
   }, []);
 
-  const handleAssign = (solicitacaoId, coletadorId) => {
-    console.log(
-      `Atribuir solicitação ${solicitacaoId} ao coletador ${coletadorId}`
-    );
-    // Aqui você pode chamar a API para fazer a atribuição
+  const handleAssign = async (solicitacaoId, coletadorId) => {
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/api/solicitacoesColeta/atribuir",
+        {
+          coletadorId,
+          solicitacaoId,
+        }
+      );
+
+      if (res.status === 200) {
+        console.log("Solicitação atribuída com sucesso");
+      } else {
+        console.log("Erro ao atribuir solicitação:", res.data);
+      }
+    } catch (error) {
+      console.error("Houve um erro ao atribuir a solicitação", error);
+    }
   };
 
   return (
