@@ -38,7 +38,9 @@ const LoginPage = () => {
         if (userType === "usuario") {
           navigate("/dashboardUsuario");
         } else if (userType === "coletador") {
-          navigate("/dashboardColetador");
+          navigate("/dashboardColetador", {
+            state: { userData: response.data },
+          });
         } else {
           navigate("/dashboardCooperativa");
         }

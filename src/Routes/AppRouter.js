@@ -5,6 +5,7 @@ import SignupPage from "../screens/SignupPage";
 import LoginPage from "../screens/LoginPage";
 import UserDashboard from "../screens/UserDashboard";
 import CooperativaDashboard from "../screens/CooperativaDashboard";
+import ColetorDashboard from "../screens/ColetorDashboard";
 
 const AppRouter = () => {
   return (
@@ -18,6 +19,7 @@ const AppRouter = () => {
           path="/dashboardCooperativa"
           element={<CooperativaDashboard />}
         />
+        <Route path="/dashboardColetador" element={<ColetorDashboard />} />
       </Routes>
     </BrowserRouter>
   );
