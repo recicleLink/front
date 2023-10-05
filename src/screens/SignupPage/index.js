@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import Header from "../../components/Header";
 import styles from "./SignupPage.module.css";
 
 const SignupPage = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
@@ -22,26 +26,26 @@ const SignupPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/registro", {
-        // Substitua pela URL do seu backend
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
+      const response = await axios.post(
+        "http://localhost:5000/api/autenticacao/registro",
+        formData
+      );
       if (response.status === 200) {
         // Usuário registrado com sucesso. Redirecionar para a página de login ou outra ação
-        console.log("Usuário registrado:", data);
-      } else {
-        // Mostrar erros
-        console.log("Erro:", data.erros);
+        console.log("Usuário registrado:", response.data);
+        navigate("/login");
       }
     } catch (error) {
-      console.error("Houve um erro ao registrar o usuário", error);
+      if (error.response) {
+        // Erros do servidor
+        console.log("Erro:", error.response.data);
+      } else if (error.request) {
+        // Erros de rede
+        console.log("Erro de Rede:", error.message);
+      } else {
+        // Outros erros
+        console.log("Erro:", error.message);
+      }
     }
   };
 
