@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+  background-color: #9E5AFF;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.formContainer,
+.leftSVG,
+.rightSVG {
+  flex: 1;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input,
+select {
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #9E5AFF;
+}
+
+button {
+  background-color: #FFAA1B;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #7e49d3;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.leftSVG,
+.rightSVG {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.leftSVG {
+  background-image: url('./../../assets/images/agente.svg');
+}
+
+.rightSVG {
+  background-image: url('./../../assets/images/moradora.svg');
+}
+
+@media (max-width: 768px) {
+
+  .leftSVG,
+  .rightSVG {
+    display: none;
+  }
+}

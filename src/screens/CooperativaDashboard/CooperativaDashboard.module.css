@@ -1,0 +1,39 @@
+.cooperativaContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F2F2F2;
+  min-height: 100vh;
+}
+
+.solicitacaoList {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 80%;
+  margin: 20px 0;
+}
+
+.solicitacaoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.assignButton {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.assignButton:hover {
+  background-color: #45a049;
+}

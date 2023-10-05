@@ -28,6 +28,9 @@ const LoginPage = () => {
       );
 
       if (response.status === 200) {
+        // Armazena o token no localStorage
+        localStorage.setItem("token", response.data.token);
+
         const userType = response.data.tipoUsuario; // Supondo que o tipo de usuário vem na resposta
         console.log("Usuário autenticado:", response.data);
 
