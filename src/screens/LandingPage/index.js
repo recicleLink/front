@@ -16,7 +16,7 @@ const LandingPage = () => {
             <FloatingButton
               label={"Cadastre-se"}
               color="#6200ea"
-              to="/cadastrar"
+              to="/signup"
             />
             <FloatingButton label={"Login"} color="#03dac6" to="/login" />
           </div>

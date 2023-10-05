@@ -1,15 +1,15 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Login from "./Login";
-import Dashboard from "./Dashboard";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LandingPage from "../screens/LandingPage";
+import SignupPage from "../screens/SignupPage";
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path="/login" component={Login} />
-        <Route path="/dashboard" component={Dashboard} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+      </Routes>
     </BrowserRouter>
   );
 };
