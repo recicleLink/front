@@ -1,19 +1,19 @@
+/* LandingPage.module.css */
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   min-height: 100vh;
   background-color: #9E5AFF;
-  height: 100v;
 }
 
 .content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
   flex-grow: 1;
-
+  padding: 20px;
 }
 
 .leftSide,
@@ -29,29 +29,35 @@
 }
 
 .title {
-  padding: 32px;
-  font-size: 48px;
+  font-size: 3vw;
   font-weight: bold;
   margin-bottom: 20px;
   color: yellow;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  /* Sombra do texto */
   letter-spacing: 2px;
+  word-wrap: break-word;
+  text-align: center;
 }
 
 .buttons {
-  margin-top: 12%;
   display: flex;
   gap: 20px;
 }
 
 .rightSide {
   background: url('../../assets/images/RecicleLink.svg') no-repeat center;
-  background-size: contain;
-  flex: 1;
-  margin-bottom: 20vh
+  background-size: auto 100%; /* ajustado para auto 100% para manter a proporção da imagem */
+  margin-bottom: 20vh;
 }
 
+/* Estilização para Tablets e Telas Médias */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .title {
+    font-size: 3.5vw;
+  }
+}
+
+/* Estilização para Mobile e Telas Pequenas */
 @media (max-width: 768px) {
   .content {
     flex-direction: column;
@@ -61,14 +67,62 @@
   .rightSide {
     flex: none;
     width: 100%;
+    padding: 0px;
   }
 
   .title {
-    font-size: 32px;
+    font-size: 6vw;
+    padding: 0px;
   }
 
   .buttons {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .rightSide {
+    min-height: 400px; /* altura mínima ajustada */
+    background-size: auto 100%; /* ajustado para auto 100% para manter a proporção da imagem */
+    background-position: center;
+    margin-bottom: 10vh;
+  }
+}
+
+/* Estilização específica para telas de 320px */
+@media (max-width: 320px) {
+  .title {
+    font-size: 6vw;
+    padding: 0px;
+  }
+
+  .buttons {
+    gap: 10px;
+  }
+
+  .rightSide {
+    min-height: 200px;
+    background-size: auto 100%;
+    background-position: center;
+    margin-bottom: 10vh;
+  }
+}
+
+/* Estilização específica para telas de 375px */
+@media (max-width: 375px) {
+  .rightSide {
+    min-height: 190px;
+    background-size: auto 100%;
+    background-position: center;
+    margin-bottom: 10vh;
+  }
+}
+
+/* Estilização específica para telas de 425px */
+@media (max-width: 425px) {
+  .rightSide {
+    min-height: 190px;
+    background-size: auto 100%;
+    background-position: center;
+    margin-bottom: 10vh;
   }
 }

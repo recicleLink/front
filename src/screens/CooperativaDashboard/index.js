@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./CooperativaDashboard.module.css"; // Importe o CSS
+import styles from "./CooperativaDashboard.module.css";// Importe o CSS
 
 const CooperativaDashboard = () => {
   const [solicitacoes, setSolicitacoes] = useState([]);
@@ -60,11 +60,11 @@ const CooperativaDashboard = () => {
   };
 
   return (
-    <div className="cooperativaContainer">
+    <div className={styles.cooperativaContainer}>
       <h1>Dashboard da Cooperativa</h1>
-      <div className="solicitacaoList">
+      <div className={styles.solicitacaoList}>
         {solicitacoes.map((solicitacao) => (
-          <div className="solicitacaoItem" key={solicitacao._id}>
+          <div className={styles.solicitacaoItem} key={solicitacao._id}>
             <div>
               <p>Endereço: {solicitacao.endereco}</p>
               <p>Descrição: {solicitacao.descricao}</p>

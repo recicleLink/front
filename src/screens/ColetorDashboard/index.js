@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import "./ColetorDashboard.module.css"; // Importe o CSS
+import styles from "./ColetorDashboard.module.css"; // Importe o CSS
+
 
 const ColetorDashboard = () => {
   const [solicitacoes, setSolicitacoes] = useState([]);
@@ -16,12 +17,12 @@ const ColetorDashboard = () => {
   }, []);
 
   return (
-    <div className="coletorContainer">
+    <div className={styles.coletorContainer}>
       <h1>Dashboard do Coletor</h1>
 
       {solicitacoes &&
         solicitacoes.map((solicitacaoId, index) => (
-          <div className="solicitacaoItem" key={index}>
+          <div className={styles.solicitacaoItem} key={index}>
             <div>
               <p>ID da Solicitação: {solicitacaoId}</p>{" "}
               {/* Mostrando apenas o ID */}

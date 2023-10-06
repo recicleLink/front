@@ -1,3 +1,5 @@
+/* UserDashBoard.module.css */
+
 .container {
   display: flex;
   flex-direction: column;
@@ -35,6 +37,9 @@ select {
   font-size: 16px;
   margin-bottom: 10px;
   transition: border-color 0.3s ease;
+  width: 100%; /* Mantenha a largura em 100% */
+  max-width: calc(100% - 0px); /* Adicione esta linha */
+  box-sizing: border-box; /* Adicione esta linha */
 }
 
 input:focus,
@@ -79,10 +84,32 @@ form {
   background-image: url('./../../assets/images/moradora.svg');
 }
 
-@media (max-width: 768px) {
-
+@media (max-width: 1024px) {
   .leftSVG,
   .rightSVG {
     display: none;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .formContainer {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 425px) {
+  input,
+  select,
+  button {
+    font-size: 14px;
+  }
+
+  .formContainer {
+    padding: 10px;
   }
 }

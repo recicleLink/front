@@ -1,10 +1,20 @@
+/* ColetorDashboard.module.css */
+
 .coletorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: #9E5AFF; /* Cor de fundo consistente */
 }
 
 .solicitacaoList {
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 10px;
 }
 
@@ -15,17 +25,40 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 95%;
+  max-width: 800px; /* largura máxima */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); /* sombra sutil */
+  margin-bottom: 10px;
 }
 
 .completeButton {
   background-color: green;
   color: white;
-  padding: 10px;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .completeButton:hover {
   background-color: darkgreen;
+}
+
+/* Estilizações para Mobile e Telas Pequenas */
+@media (max-width: 768px) {
+  .coletorContainer {
+    padding: 10px;
+  }
+
+  .solicitacaoItem {
+    flex-direction: column;
+    align-items: flex-center;
+  }
+
+  .completeButton {
+    font-size: 0.875rem;
+    margin-top: 10px; /* espaço extra acima do botão */
+  }
 }

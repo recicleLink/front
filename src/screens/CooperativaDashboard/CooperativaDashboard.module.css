@@ -1,10 +1,30 @@
+/* CooperativaDashboard.module.css */
+
 .cooperativaContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #F2F2F2;
+  background-color: #9E5AFF; /* Ajuste para a cor de fundo desejada */
   min-height: 100vh;
+  padding: 20px; /* Adicionado padding */
 }
+
+p {
+  background-color: #FFAA1B; /* Cor de fundo laranja */
+  color: #ffffff; /* Cor do texto branca */
+  padding: 5px; /* Espaçamento interno para afastar o fundo do texto */
+  border-radius: 5px; /* Borda arredondada para suavizar as arestas do fundo */
+  display: inline-block; /* Para garantir que o fundo se ajuste ao texto */
+}
+
+.highlightedText {
+  background-color: #FFAA1B;
+  color: #ffffff;
+  padding: 5px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
 
 .solicitacaoList {
   display: flex;
@@ -12,6 +32,7 @@
   align-items: stretch;
   width: 80%;
   margin: 20px 0;
+  box-sizing: border-box; /* Adicionado box-sizing */
 }
 
 .solicitacaoItem {
@@ -23,17 +44,44 @@
   margin-bottom: 10px;
   border-radius: 5px;
   background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adicionado box-shadow */
 }
 
 .assignButton {
   padding: 10px 20px;
-  background-color: #4CAF50;
+  background-color: #FFAA1B; /* Ajuste para a cor do botão desejada */
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px; /* Ajuste para o tamanho de fonte desejado */
 }
 
 .assignButton:hover {
-  background-color: #45a049;
+  background-color: #7e49d3; /* Ajuste para a cor do hover desejada */
+}
+
+/* Breakpoint para telas até 1024px */
+@media (max-width: 1024px) {
+  .solicitacaoList {
+    width: 100%;
+  }
+
+  .solicitacaoItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Breakpoint para telas até 768px */
+@media (max-width: 768px) {
+  .solicitacaoList {
+    width: 100%;
+    padding: 0 20px; /* Adicionado padding */
+  }
+
+  .solicitacaoItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
