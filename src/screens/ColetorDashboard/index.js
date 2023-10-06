@@ -11,9 +11,10 @@ const ColetorDashboard = () => {
 
   useEffect(() => {
     console.log("Dados do usuário:", userData);
-    // Use o campo correto aqui
-    setSolicitacoes(userData.solicitacoesAtribuidas || []);
-    console.log("Solicitações de coleta:", solicitacoes);
+    if (userData && userData.solicitacoesAtribuidas) {
+      setSolicitacoes(userData.solicitacoesAtribuidas);
+      console.log("Solicitações de coleta:", solicitacoes);
+    }
   }, []);
 
   const uniqueSolicitacoes = new Set(solicitacoes);
