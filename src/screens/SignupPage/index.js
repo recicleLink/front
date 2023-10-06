@@ -27,7 +27,7 @@ const SignupPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/autenticacao/registro",
+        "http://localhost:5000/api/usuarios",
         formData
       );
       if (response.status === 200) {

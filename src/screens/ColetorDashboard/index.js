@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import CardSolicitacao from "../../components/CardSolicitacao";
 import styles from "./ColetorDashboard.module.css"; // Importe o CSS
-
 
 const ColetorDashboard = () => {
   const [solicitacoes, setSolicitacoes] = useState([]);
@@ -16,16 +16,17 @@ const ColetorDashboard = () => {
     console.log("Solicitações de coleta:", solicitacoes);
   }, []);
 
+  const uniqueSolicitacoes = new Set(solicitacoes);
+
   return (
     <div className={styles.coletorContainer}>
       <h1>Dashboard do Coletor</h1>
 
-      {solicitacoes &&
-        solicitacoes.map((solicitacaoId, index) => (
+      {uniqueSolicitacoes &&
+        Array.from(uniqueSolicitacoes).map((solicitacaoId, index) => (
           <div className={styles.solicitacaoItem} key={index}>
             <div>
-              <p>ID da Solicitação: {solicitacaoId}</p>
-              {/* Mostrando apenas o ID - precisa criar um*/}
+              <CardSolicitacao id={solicitacaoId} />
             </div>
             <button className="completeButton">Marcar como Completo</button>
           </div>

@@ -23,32 +23,36 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/autenticacao/login",
+        "http://localhost:5000/api/usuarios/login", // Adicionado http://
         formData
       );
 
       if (response.status === 200) {
-        // Armazena o token no localStorage
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("idUsuario", response.data.idUsuario);
+        localStorage.setItem("tipoUsuario", response.data.tipoUsuario);
+        localStorage.setItem(
+          "solicitacoesAtribuidas",
+          JSON.stringify(response.data.solicitacoesAtribuidas)
+        );
 
-        const userType = response.data.tipoUsuario; // Supondo que o tipo de usuário vem na resposta
-        console.log("Usuário autenticado:", response.data);
+        const userType = response.data.tipoUsuario;
 
-        // Redirecionar para o dashboard de acordo com o tipo de usuário
         if (userType === "usuario") {
           navigate("/dashboardUsuario");
         } else if (userType === "coletador") {
-          navigate("/dashboardColetador", {
-            state: { userData: response.data },
-          });
+          navigate("/dashboardColetador");
         } else {
           navigate("/dashboardCooperativa");
         }
       } else {
-        console.log("Erro:", response.data.erros);
+        console.error("Erro:", response.data.error);
       }
     } catch (error) {
-      console.error("Houve um erro ao autenticar o usuário", error);
+      console.error(
+        "Houve um erro ao autenticar o usuário:",
+        error.response?.data?.error || error
+      );
     }
   };
 
