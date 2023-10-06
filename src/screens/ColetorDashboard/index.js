@@ -24,8 +24,8 @@ const ColetorDashboard = () => {
         solicitacoes.map((solicitacaoId, index) => (
           <div className={styles.solicitacaoItem} key={index}>
             <div>
-              <p>ID da Solicitação: {solicitacaoId}</p>{" "}
-              {/* Mostrando apenas o ID */}
+              <p>ID da Solicitação: {solicitacaoId}</p>
+              {/* Mostrando apenas o ID - precisa criar um*/}
             </div>
             <button className="completeButton">Marcar como Completo</button>
           </div>
