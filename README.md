@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# RecicleLink Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+RecicleLink é uma aplicação que visa facilitar a coleta seletiva de resíduos e foi criado durante o Hackfor Change FIAP + Alura. Este repositório contém o código frontend da plataforma, desenvolvido em React.
 
-## Available Scripts
+## 🛠️ Tecnologias Utilizadas
 
-In the project directory, you can run:
+- [React](https://reactjs.org/)
+- [React Router Dom](https://reactrouter.com/)
+- [Axios](https://axios-http.com/)
+- [JWT Decode](https://www.npmjs.com/package/jwt-decode)
 
-### `npm start`
+## 📂 Estrutura do Projeto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+A estrutura de pastas pode variar, mas um exemplo comum seria:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```plaintext
+/src
+  |_assets
+  |    |_images
+  |_components
+  |_screens
+  |_Routes
+App.js
+index.js
+```
 
-### `npm test`
+## 🚀 Iniciando o Projeto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone o repositório no GitHub
+2. Acesse a pasta do projeto no terminal/cmd
+3. Instale as dependências com o comando:
+   ```bash
+   npm install
+   ```
+4. Execute a aplicação em modo de desenvolvimento:
+   ```bash
+   npm start
+   ```
 
-### `npm run build`
+O servidor iniciará na porta :3000 - acesse <http://localhost:3000>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📝 Funcionalidades
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Cadastro de Usuários
+  O cidadão pode ser cadastrar em três categorias: cidadão, coletador ou cooperativa.
+- Autenticação de usuários
+  Usuários podem se autenticar na plataforma através de login e senha e são encaminhados para seus dashboards específicos de acordo com a categoria.
+- Criação de solicitações de coleta de resíduos
+  Usuários podem criar solicitações de coleta de resíduos, que são encaminhadas para cooperativas e coletadores.
+- Atribuição de solicitações de coleta de resíduos
+  Cooperativas podem atribuir solicitações de coleta de resíduos para coletadores.
+- Visualização de solicitações de coleta de resíduos
+  Coletadores podem visualizar solicitações de coleta de resíduos atribuídas a eles.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📋 Scripts Disponíveis
 
-### `npm run eject`
+No diretório do projeto, você pode rodar:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- \`npm start\`: Inicia o app em modo de desenvolvimento
+- \`npm build\`: Compila o app para produção na pasta \`build\`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📌 Informações Adicionais
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Este frontend é parte do projeto RecicleLink, uma solução completa para facilitar a coleta seletiva de resíduos. Este projeto está em fase de MVP e futuras atualizações trarão novas funcionalidades e melhorias.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Para mais informações, consulte a documentação completa ou entre em contato com a equipe de desenvolvimento.

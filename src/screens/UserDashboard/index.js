@@ -24,7 +24,8 @@ const UserDashboard = () => {
 
     // Decodifica o token para pegar o ID do usuário
     const decoded = jwt_decode(token);
-    const userId = decoded.id; // Ajuste para o campo correto, se necessário
+    const userId = decoded.id;
+    console.log("userId de quem criou a solicitação", userId); // Ajuste para o campo correto, se necessário
 
     try {
       // Faz a chamada à API

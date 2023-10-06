@@ -11,7 +11,7 @@ const CooperativaDashboard = () => {
       try {
         // Substitua pela URL correta do seu backend e adicione o query param tipoUsuario=coletador
         const res = await axios.get(
-          "http://localhost:5000/api/usuarios?tipoUsuario=coletador"
+          "http://localhost:5000/api/usuarios/tipoUsuario/?tipoUsuario=coletador"
         );
         setColetadores(res.data);
         // Faça algo com os coletadores aqui (defina o estado, por exemplo)
