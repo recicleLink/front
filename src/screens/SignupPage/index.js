@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../../components/Header";
@@ -7,12 +7,20 @@ import styles from "./SignupPage.module.css";
 const SignupPage = () => {
   const navigate = useNavigate();
 
+  const [userTypes, setUserTypes] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/api/v1/user-types")
+      .then((response) => response.json())
+      .then((data) => setUserTypes(data));
+  }, []);
+
   const [formData, setFormData] = useState({
-    nome: "",
+    user_type_id: "",
+    name: "",
     email: "",
-    senha: "",
-    endereco: "",
-    tipoUsuario: "usuario",
+    mobile_number: "",
+    password: "",
   });
 
   const handleChange = (e) => {
@@ -25,12 +33,14 @@ const SignupPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/usuarios",
+        "http://localhost:8080/api/v1/users",
         formData
       );
-      if (response.status === 200) {
+      console.log(response);
+      if (response.status === 201) {
         // Usuário registrado com sucesso. Redirecionar para a página de login ou outra ação
         console.log("Usuário registrado:", response.data);
         navigate("/login");
@@ -58,45 +68,51 @@ const SignupPage = () => {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              name="nome"
-              placeholder="Nome"
-              value={formData.nome}
+              name="name"
+              placeholder="Digite seu nome"
+              value={formData.name}
               onChange={handleChange}
               required
             />
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder="Digite seu email"
               value={formData.email}
               onChange={handleChange}
               required
             />
             <input
-              type="password"
-              name="senha"
-              placeholder="Senha"
-              value={formData.senha}
+              type="tel"
+              name="mobile_number"
+              placeholder="Digite seu telefone, (XX)9XXXX-XXXX"
+              pattern="\(\d{2}\)9\d{4}-\d{4}"
+              value={formData.mobile_number}
               onChange={handleChange}
               required
-            />
+            ></input>
             <input
-              type="text"
-              name="endereco"
-              placeholder="Endereço"
-              value={formData.endereco}
+              type="password"
+              name="password"
+              placeholder="Digite sua senha"
+              value={formData.password}
               onChange={handleChange}
               required
             />
             <select
-              name="tipoUsuario"
-              value={formData.tipoUsuario}
+              name="user_type_id"
+              value={formData.user_type_id}
               onChange={handleChange}
               required
             >
-              <option value="usuario">Usuário</option>
-              <option value="coletador">Coletador</option>
-              <option value="cooperativa">Cooperativa</option>
+              <option value=""></option>
+              {userTypes.map((userType) => {
+                return (
+                  <option key={userType._id} value={userType._id}>
+                    {userType.ust_des_name}
+                  </option>
+                );
+              })}
             </select>
             <button type="submit">Cadastrar</button>
           </form>
