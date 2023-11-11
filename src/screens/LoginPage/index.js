@@ -8,7 +8,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
-    senha: "",
+    password: "",
   });
 
   const handleChange = (e) => {
@@ -23,26 +23,22 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/usuarios/login", // Adicionado http://
+        "http://localhost:8080/api/v1/users/login", // Adicionado http://
         formData
       );
 
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("idUsuario", response.data.idUsuario);
-        localStorage.setItem("tipoUsuario", response.data.tipoUsuario);
-        localStorage.setItem(
-          "solicitacoesAtribuidas",
-          JSON.stringify(response.data.solicitacoesAtribuidas)
-        );
+        localStorage.setItem("user_id", response.data.user_id);
+        localStorage.setItem("user_type", response.data.user_type);
 
-        const userType = response.data.tipoUsuario;
+        const userTypeId = response.data.user_type;
 
-        if (userType === "usuario") {
+        if (userTypeId === "654fd260c61dc36d26d149f0") {
           navigate("/dashboardUsuario");
-        } else if (userType === "coletador") {
+        } else if (userTypeId === "654fd264c61dc36d26d149f2") {
           navigate("/dashboardColetador");
-        } else {
+        } else if (userTypeId === "654fd268c61dc36d26d149f4") {
           navigate("/dashboardCooperativa");
         }
       } else {
@@ -66,15 +62,15 @@ const LoginPage = () => {
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder="Digite seu email"
               value={formData.email}
               onChange={handleChange}
               required
             />
             <input
               type="password"
-              name="senha"
-              placeholder="Senha"
+              name="password"
+              placeholder="Digite sua senha"
               value={formData.senha}
               onChange={handleChange}
               required
